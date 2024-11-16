@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/app-server/app-server.iml" filepath="$PROJECT_DIR$/app-server/app-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/wishlist.iml" filepath="$PROJECT_DIR$/.idea/wishlist.iml" />
     </modules>
   </component>

@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import ItemBox from "@/ui/component/ItemBox";
+import styled from "styled-components"
+import ItemBox from "@/ui/component/ItemBox"
 
 const Wrapper = styled.div`
     background-color: #fffae4;
@@ -19,11 +19,24 @@ const Title = styled.span`
     font-family: Arial;
 `
 
-export const Home = () => {
+const Button = styled.button`
+    background: none;
+    border: none;
+    font-size: 5vw;
+`
+
+export const Home = ({ data }: { data: any }) => {
+    console.log(data)
+
+    const moveToMakeWish = () => {
+        window.location.href = "/new"
+    }
+
     return (
         <>
             <Wrapper>
                 <Title>Wishlist of this month</Title>
+                <Button onClick={moveToMakeWish}>💭</Button>
                 <ItemBox></ItemBox>
             </Wrapper>
         </>
