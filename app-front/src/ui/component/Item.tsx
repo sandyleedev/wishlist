@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 const Wrapper = styled.div`
     width: 100%;
@@ -12,11 +12,11 @@ const Img = styled.img`
     display: flex;
 `
 
-export const Item = (props: {imgSrc: string}) => {
-    const {imgSrc} = props
+export const Item = (props: { imgSrc: string }) => {
+    const { imgSrc } = props
     return (
         <Wrapper>
-            <Img src={imgSrc}/>
+            <Img src={imgSrc} />
         </Wrapper>
     )
 }

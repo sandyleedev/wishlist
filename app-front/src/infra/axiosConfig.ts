@@ -8,3 +8,10 @@ export const imageAxios = axios.create({
     },
     responseType: "arraybuffer",
 })
+
+
+export const htmlAxios = axios.create({
+    headers: {
+        "Content-Type": "multipart/form-data",
+    },
+})
