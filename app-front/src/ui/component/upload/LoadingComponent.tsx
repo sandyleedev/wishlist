@@ -1,5 +1,5 @@
 import Player from "lottie-react"
-import snowflake from "../../../public/lottie/snowflake.json"
+import snowflake from "../../../../public/lottie/snowflake.json"
 import styled from "styled-components"
 
 const Text = styled.div`

@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from "axios"
 import { useState } from "react"
-import LoadingComponent from "@/ui/component/LoadingComponent"
-import UploaderComponent from "@/ui/component/UploaderComponent"
+import LoadingComponent from "@/ui/component/upload/LoadingComponent"
+import UploaderComponent from "@/ui/component/upload/UploaderComponent"
 
 interface itemType {
     url: any

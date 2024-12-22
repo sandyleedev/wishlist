@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 
+from .utils.db_utils import connect_to_db
 from .routers.background import router as background_router
 from .routers.wishlist import router as wishlist_router
 
@@ -7,6 +8,12 @@ app = FastAPI()
 
 app.include_router(background_router)
 app.include_router(wishlist_router)
+
+# connection = connect_to_db()
+# if connection:
+#     print("Successfully connected to the database!")
+# else:
+#     print("Failed to connect to the database.")
 
 @app.middleware("http")
 async def add_cors_headers(request, call_next):

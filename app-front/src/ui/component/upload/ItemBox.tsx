@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import Item from "@/ui/component/Item"
+import Item from "@/ui/component/upload/Item"
 
 const ItemWrapper = styled.div`
     border-radius: 5%;

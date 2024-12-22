@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import ItemBox from "@/ui/component/ItemBox"
+import ItemBox from "@/ui/component/upload/ItemBox"
 
 const Wrapper = styled.div`
     background-color: #c5d3e8;
@@ -45,7 +45,7 @@ export const Home = ({ data }: { data: any }) => {
     console.log(data)
 
     const moveToMakeWish = () => {
-        window.location.href = "/new"
+        window.location.href = "/upload"
     }
 
     return (

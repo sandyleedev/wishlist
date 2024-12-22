@@ -1,7 +1,7 @@
 import styled from "styled-components"
-import DefaultImage from "@/ui/component/DefaultImage"
+import DefaultImage from "@/ui/component/upload/DefaultImage"
 import { Input } from "@/ui/base/Input"
-import TwoButtons from "@/ui/component/TwoButtons"
+import TwoButtons from "@/ui/component/upload/TwoButtons"
 import { ChangeEvent, useRef, useState } from "react"
 import { imageAxios } from "@/infra/axiosConfig"
 
@@ -57,7 +57,7 @@ export const NewItem = (props: NewItemProps) => {
 
   const [nameInput, setNameInput] = useState("")
   const [urlInput, setUrlInput] = useState("")
-  const [imgInput, setImgInput] = useState<FormData | null>(null)
+  const [imgInput, setImgInput] = useState<any | null>(null)
 
   const [isSaved, setIsSaved] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
@@ -76,14 +76,17 @@ export const NewItem = (props: NewItemProps) => {
       formData.append(`file`, file)
       setImgInput(formData)
 
-      // python remove bg api
-      const { data } = await imageAxios.post("/remove-bg", formData)
-      const imageBlob = new Blob([data], { type: "image/png" })
+      // preview image
+      const imageBlob = new Blob([file], { type: "image/png" })
       const resultUrl = URL.createObjectURL(imageBlob)
+
+      setImgInput(imageBlob)
       setImgUrl(resultUrl)
       setIsLoading(false)
     }
   }
+
+
 
   return (
     <>
