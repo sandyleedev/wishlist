@@ -14,15 +14,15 @@ interface NewItemProps {
 }
 
 const Wrapper = styled.div`
-    background-color: rgba(198, 198, 198, 0.6);
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-    padding: 10px;
-    width: 94vw;
-    height: min-content;
+  background-color: rgba(198, 198, 198, 0.6);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  padding: 10px;
+  width: 94vw;
+  height: min-content;
 `
 
 const Preview = styled.img<{ $isSaved: boolean }>`
@@ -81,16 +81,10 @@ export const NewItem = (props: NewItemProps) => {
   return (
     <>
       <Wrapper>
-        {isLoading ? (
-          <>processing...</>
+        {imgUrl ? (
+          <Preview src={imgUrl} onClick={handleImgClick} $isSaved={isSaved} />
         ) : (
-          <>
-            {imgUrl ? (
-              <Preview src={imgUrl} onClick={handleImgClick} $isSaved={isSaved} />
-            ) : (
-              <DefaultImage onClick={handleImgClick} />
-            )}
-          </>
+          <DefaultImage onClick={handleImgClick} />
         )}
 
         {/* hidden file uploader */}
@@ -100,7 +94,6 @@ export const NewItem = (props: NewItemProps) => {
           ref={fileInputRef}
           style={{ display: "none" }}
           onChange={(e) => {
-            setIsLoading(true)
             handleFileChange(e)
           }}
         />

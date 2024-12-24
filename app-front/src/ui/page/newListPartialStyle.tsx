@@ -15,9 +15,6 @@ export const GridWrapper = styled.div`
   display: grid;
   gap: 10px; /* 아이템 간의 간격 */
   padding: 10px;
-  /* 2x2 그리드 레이아웃 */
-  //grid-template-columns: repeat(2, 1fr);
-  //grid-template-rows: repeat(2, 1fr);
 `
 
 export const ButtonWrapper = styled.div`

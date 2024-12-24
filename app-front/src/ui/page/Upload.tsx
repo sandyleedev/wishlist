@@ -16,6 +16,13 @@ export const Upload = () => {
   const [isUploading, setIsUploading] = useState(false)
 
   const renderWishlist = async () => {
+    console.log(itemArray)
+
+    if (!itemArray || !itemArray[0].name) {
+      alert("1개 이상의 아이템을 업로드해주세요!")
+      return
+    }
+
     setIsUploading(true)
     // array의 item들을 하나의 formdata로 만들기
 
@@ -46,20 +53,18 @@ export const Upload = () => {
       ) : (
         <Wrapper>
           <>
-            <Title>
-              Make a new wish! ଘ(੭ˊᵕˋ)੭*❄️
-            </Title>
+            <Title>Make a new wish! ଘ(੭ˊᵕˋ)੭*❄️</Title>
             <GridWrapper>
               {itemArray.map((item) => (
-                <NewItem
-                  key={item.id}
-                  id={item.id}
-                  name={item.name}
-                  url={item.url}
-                  img={item.img}
-                  saveItem={saveItem}
-                  removeItem={removeItem}
-                />
+                  <NewItem
+                    key={item.id}
+                    id={item.id}
+                    name={item.name}
+                    url={item.url}
+                    img={item.img}
+                    saveItem={saveItem}
+                    removeItem={removeItem}
+                  />
               ))}
             </GridWrapper>
             <ButtonWrapper>
