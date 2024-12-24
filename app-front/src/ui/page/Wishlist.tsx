@@ -27,6 +27,7 @@ const Title = styled.div`
   font-weight: 700;
   font-style: italic;
   grid-column: 1 / -1; /* 타이틀이 그리드 전체를 차지하도록 설정 */
+  margin: 20px 0;
 `
 
 export const Wishlist = (props: any) => {
@@ -59,9 +60,8 @@ export const Wishlist = (props: any) => {
             />
           ))}
         </GridContainer>
-        <Footer/>
+        <Footer />
       </Wrapper>
-      <Island />
     </>
   )
 }
