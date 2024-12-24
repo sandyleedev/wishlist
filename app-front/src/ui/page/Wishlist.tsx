@@ -1,6 +1,5 @@
 import styled from "styled-components"
 import Item from "@/ui/component/wishlist/Item"
-import Island from "@/ui/component/wishlist/Island"
 import Footer from "@/ui/component/wishlist/Footer"
 
 const Wrapper = styled.div<{ $bgColor: string }>`

@@ -8,13 +8,13 @@ const Wrapper = styled.div`
 `
 
 const LeftBtn = styled(Button)`
-    background-color: #0ea331;
-    flex-grow: 1;
+  background-color: #0ea331;
+  flex-grow: 1;
 `
 
 const RightBtn = styled(Button)`
-    background-color: #f32043;
-    flex-grow: 1;
+  background-color: #f32043;
+  flex-grow: 1;
 `
 
 interface TwoButtonProps {
@@ -35,17 +35,17 @@ export const TwoButtons = (props: TwoButtonProps) => {
     setIsSaved(!isSaved)
 
     if (!isSaved) {
-      if (name == null || name == ""){
+      if (name == null || name == "") {
         alert("Please fill out the name!")
         setIsSaved(false)
         return
       }
-      if (url == null || url == ""){
+      if (url == null || url == "") {
         alert("Please fill out the url!")
         setIsSaved(false)
         return
       }
-      if (img == null){
+      if (img == null) {
         alert("Please upload an image!")
         setIsSaved(false)
         return
@@ -57,7 +57,7 @@ export const TwoButtons = (props: TwoButtonProps) => {
 
   return (
     <Wrapper>
-      <LeftBtn onClick={handleLeftBtn}>{isSaved? "EDIT" : "SAVE"}</LeftBtn>
+      <LeftBtn onClick={handleLeftBtn}>{isSaved ? "EDIT" : "SAVE"}</LeftBtn>
       <RightBtn
         onClick={() => {
           removeItem(id)

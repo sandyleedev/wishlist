@@ -56,21 +56,27 @@ export const Upload = () => {
             <Title>Make a new wish! ଘ(੭ˊᵕˋ)੭*❄️</Title>
             <GridWrapper>
               {itemArray.map((item) => (
-                  <NewItem
-                    key={item.id}
-                    id={item.id}
-                    name={item.name}
-                    url={item.url}
-                    img={item.img}
-                    saveItem={saveItem}
-                    removeItem={removeItem}
-                  />
+                <NewItem
+                  key={item.id}
+                  id={item.id}
+                  name={item.name}
+                  url={item.url}
+                  img={item.img}
+                  saveItem={saveItem}
+                  removeItem={removeItem}
+                />
               ))}
             </GridWrapper>
             <ButtonWrapper>
               <AddButton onClick={addItem}>+ Add new item</AddButton>
               <AddButton onClick={renderWishlist}>🧚 Make Wishlist !</AddButton>
-              <AddButton onClick={()=>{window.location.href="/"}}>🏠 Go back to main page</AddButton>
+              <AddButton
+                onClick={() => {
+                  window.location.href = "/"
+                }}
+              >
+                🏠 Go back to main page
+              </AddButton>
             </ButtonWrapper>
           </>
         </Wrapper>

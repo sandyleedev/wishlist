@@ -2,7 +2,7 @@ import styled from "styled-components"
 import DefaultImage from "@/ui/component/upload/DefaultImage"
 import { Input } from "@/ui/base/Input"
 import TwoButtons from "@/ui/component/upload/TwoButtons"
-import { useRef, useState } from "react"
+import { ChangeEvent, useRef, useState } from "react"
 
 interface NewItemProps {
   id: number
@@ -52,7 +52,6 @@ export const NewItem = (props: NewItemProps) => {
   const [imgInput, setImgInput] = useState<any | null>(null)
 
   const [isSaved, setIsSaved] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
 
   const handleImgClick = () => {
     // 숨겨진 파일 입력 요소 클릭 트리거
@@ -61,7 +60,7 @@ export const NewItem = (props: NewItemProps) => {
     }
   }
 
-  const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = async (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0]
     if (file) {
       const formData = new FormData()
@@ -74,7 +73,6 @@ export const NewItem = (props: NewItemProps) => {
 
       setImgInput(imageBlob)
       setImgUrl(resultUrl)
-      setIsLoading(false)
     }
   }
 

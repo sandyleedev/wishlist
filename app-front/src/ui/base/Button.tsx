@@ -1,7 +1,8 @@
 import styled from "styled-components"
+import { ReactNode } from "react"
 
 interface ButtonProps {
-  children?: React.ReactNode
+  children?: ReactNode
   onClick?: any
   width?: string
   height?: string

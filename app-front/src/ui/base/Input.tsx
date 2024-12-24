@@ -1,7 +1,8 @@
 import styled from "styled-components"
+import { ChangeEvent } from "react"
 
 interface BaseInputProps {
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void
   id?: string
   name?: string
   value?: string
@@ -27,15 +28,7 @@ export const Input = styled.input`
 export const BaseInput = (props: BaseInputProps) => {
   const { onChange, id, name, value, placeholder } = props
 
-  return (
-    <Input
-      onChange={onChange}
-      id={id}
-      name={name}
-      value={value}
-      placeholder={placeholder}
-    />
-  )
+  return <Input onChange={onChange} id={id} name={name} value={value} placeholder={placeholder} />
 }
 
 export default BaseInput

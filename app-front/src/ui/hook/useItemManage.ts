@@ -26,7 +26,7 @@ export const useItemManage = () => {
   }
 
   const removeItem = (id: number) => {
-    setItemArray((prev) => itemArray.filter((item) => item.id !== id))
+    setItemArray(() => itemArray.filter((item) => item.id !== id))
   }
 
   return { itemArray, setItemArray, currentId, setCurrentId, addItem, saveItem, removeItem }

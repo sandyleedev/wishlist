@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import { Button } from "@/ui/base/Button"
 
 export const Wrapper = styled.div`
   background-color: white;
