@@ -70,6 +70,7 @@ export const Upload = () => {
             <ButtonWrapper>
               <AddButton onClick={addItem}>+ Add new item</AddButton>
               <AddButton onClick={renderWishlist}>🧚 Make Wishlist !</AddButton>
+              <AddButton onClick={()=>{window.location.href="/"}}>🏠 Go back to main page</AddButton>
             </ButtonWrapper>
           </>
         </Wrapper>

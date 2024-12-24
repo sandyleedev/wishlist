@@ -44,13 +44,13 @@ export const Footer = () => {
           <Icon>🔗</Icon>
           <Text>Share wishlist url</Text>
         </Button>
-        <Button onClick={copyLink}>
-          <Icon>📋</Icon>
-          <Text>Make a new wishlist</Text>
+        <Button onClick={()=>{window.location.href = "/upload"}}>
+            <Icon>📋</Icon>
+            <Text>Make a new wishlist</Text>
         </Button>
-        <Button onClick={copyLink}>
-          <Icon>🏠</Icon>
-          <Text>Go to main page</Text>
+        <Button onClick={()=>{window.location.href = "/"}}>
+            <Icon>🏠</Icon>
+            <Text>Go to main page</Text>
         </Button>
       </Wrapper>
     </>
