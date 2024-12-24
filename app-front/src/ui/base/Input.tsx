@@ -11,13 +11,12 @@ interface BaseInputProps {
 export const Input = styled.input`
   width: 100%;
   height: 40px;
-  border-radius: 1px;
-  border: none;
-  border-bottom: 1px solid black;
+  border-radius: 5px;
+  border: 1px solid black;
   font-size: 20px;
   font-weight: 500;
   text-align: center;
-  background-color: transparent;
+  background-color: white;
   &:focus,
   &:active {
     outline: none;
@@ -35,7 +34,6 @@ export const BaseInput = (props: BaseInputProps) => {
       name={name}
       value={value}
       placeholder={placeholder}
-      autoComplete="off"
     />
   )
 }

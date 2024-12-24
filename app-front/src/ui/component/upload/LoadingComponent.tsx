@@ -3,29 +3,28 @@ import snowflake from "../../../../public/lottie/snowflake.json"
 import styled from "styled-components"
 
 const Text = styled.div`
-    position: absolute;
-    top: 20vw;
-    left: 20vw;
-    width: 60vw;
-    text-align: center;
-    font-weight: 700;
-    font-family: "Poppins", serif;
-    font-size: 6vw;
-    text-transform: uppercase;
+  position: absolute;
+  top: 40vh;
+  left: 20vw;
+  width: 60vw;
+  text-align: center;
+  font-weight: 700;
+  font-size: 30px;
+  font-style: italic;
 `
 
 export const LoadingComponent = () => {
-    return (
-        <>
-            <Player
-                autoplay
-                loop
-                animationData={snowflake}
-                style={{ width: "100vw", position: "absolute", top: 0 }}
-            />
-            <Text>Making a wish ..</Text>
-        </>
-    )
+  return (
+    <>
+      <Player
+        autoplay
+        loop
+        animationData={snowflake}
+        style={{ width: "100%", position: "absolute", top: 0 }}
+      />
+      <Text>Making a wish ! 🧚‍♀️</Text>
+    </>
+  )
 }
 
 export default LoadingComponent

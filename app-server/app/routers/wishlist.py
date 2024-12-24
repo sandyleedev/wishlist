@@ -36,29 +36,27 @@ async def upload_images(
         images: List[UploadFile] = File(...),
 ):
 
-    title_list, url_list, img_list = [], [], []
-
-    for t, u in zip(titles, urls):
-        title_list.append(t)
-        url_list.append(u)
-
     # 숫자와 알파벳을 포함한 10자리 난수 생성
     wishlist_id = ''.join(random.choices(string.ascii_letters + string.digits, k=10))
-    print(wishlist_id)
 
     connection = connect_to_db()
     cursor = connection.cursor()
+
 
     # wishlist 테이블에 데이터 삽입
     cursor.execute("INSERT INTO wishlist (wishlist_id, wishlist_title) VALUES (%s, %s)",
                    (wishlist_id, 'Wishes ~'))
 
     # wishlist_items 테이블에 데이터 삽입
-    cursor.execute("""
-        INSERT INTO wishlist_items (wishlist_id, title, url, img)
-        VALUES (%s, %s, %s, %s), (%s, %s, %s, %s)
-    """, (wishlist_id, 'pillow', 'https://29cm.co.kr', '1.webp',
-          wishlist_id, 'candle', 'https://29cm.co.kr', '1.webp'))
+    wishlist_items = []
+    for index, (title, url) in enumerate(zip(titles, urls), start = 1):
+        img_name = f"{index}.webp"
+        wishlist_items.append((wishlist_id, title, url, img_name))
+
+    cursor.executemany("""
+        INSERT INTO wishlist_items(wishlist_id, title, url, imgSrc)
+        VALUES (%s, %s, %s, %s)
+    """, wishlist_items)
 
     # 커밋 및 연결 종료
     connection.commit()
@@ -83,7 +81,10 @@ async def upload_images(
         except Exception as e:
             return {"error": f"Error processing image {index + 1}: {str(e)}"}
 
-    return {"message": "Images processed and uploaded successfully."}
+    return {
+        "message": "Images processed and uploaded successfully.",
+        "data": {"wishlist_id": wishlist_id}
+    }
 
 
 @router.get("/wishlist/{wishlist_id}", response_model=ApiResponse)
@@ -101,7 +102,7 @@ async def get_wishlist(wishlist_id: str = Path(..., title="Wishlist ID")):
             wishlistId=row['wishlist_id'],
             title=row['title'],
             url=row['url'],
-            img=row['img']
+            img=row['imgsrc']
         )
         item_list.append(item)
 

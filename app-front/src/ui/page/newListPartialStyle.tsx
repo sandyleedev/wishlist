@@ -4,26 +4,28 @@ import { Button } from "@/ui/base/Button"
 export const Wrapper = styled.div`
   background-color: white;
   width: 100vw;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 3vw;
+  padding: 3vw;
   font-style: italic;
 `
 
 export const GridWrapper = styled.div`
   display: grid;
-  width: 100%;
-  max-width: 100%; /* 필요시 최대 크기 설정 */
-  min-width: 100%;
   gap: 10px; /* 아이템 간의 간격 */
   padding: 10px;
-  margin-top: 60px;
-
   /* 2x2 그리드 레이아웃 */
   //grid-template-columns: repeat(2, 1fr);
   //grid-template-rows: repeat(2, 1fr);
+`
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  gap: 10px;
+  width: 94vw;
 `
 
 export const GridItem = styled.div`
@@ -42,18 +44,21 @@ export const GridItem = styled.div`
 `
 
 export const Title = styled.div`
-  background-color: whitesmoke;
+  color: black;
   padding: 10px 15px;
   font-weight: 700;
-  position: absolute;
-  top: 10px;
-  border-radius: 20px;
+  font-size: 20px;
+  text-align: center;
 `
 
-export const AddButton = styled(Button)`
-  width: calc(100vw - 20px);
-  height: 50px;
-  font-size: 30px;
-  color: grey;
+export const AddButton = styled.div`
+  font-size: 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+  color: black;
   cursor: pointer;
+  font-weight: 700;
+  padding: 10px;
+  text-align: center;
+  flex: 1;
 `

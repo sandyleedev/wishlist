@@ -2,8 +2,7 @@ import styled from "styled-components"
 import DefaultImage from "@/ui/component/upload/DefaultImage"
 import { Input } from "@/ui/base/Input"
 import TwoButtons from "@/ui/component/upload/TwoButtons"
-import { ChangeEvent, useRef, useState } from "react"
-import { imageAxios } from "@/infra/axiosConfig"
+import { useRef, useState } from "react"
 
 interface NewItemProps {
   id: number
@@ -15,14 +14,15 @@ interface NewItemProps {
 }
 
 const Wrapper = styled.div`
-  background-color: rgb(158, 190, 255, 0.6);
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: center;
-  padding: 10px;
-  height: min-content;
+    background-color: rgba(198, 198, 198, 0.6);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    padding: 10px;
+    width: 94vw;
+    height: min-content;
 `
 
 const Preview = styled.img<{ $isSaved: boolean }>`
@@ -31,14 +31,6 @@ const Preview = styled.img<{ $isSaved: boolean }>`
   &:hover {
     cursor: ${(props) => (props.$isSaved ? "default" : "pointer")};
   }
-`
-
-const NameField = styled.span`
-  width: 100%;
-  height: 40px;
-  font-size: 20px;
-  font-weight: 700;
-  text-align: center;
 `
 
 const ItemField = styled.a`
@@ -85,8 +77,6 @@ export const NewItem = (props: NewItemProps) => {
       setIsLoading(false)
     }
   }
-
-
 
   return (
     <>

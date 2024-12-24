@@ -1,10 +1,12 @@
 import styled from "styled-components"
 import Item from "@/ui/component/wishlist/Item"
+import Island from "@/ui/component/wishlist/Island"
+import Footer from "@/ui/component/wishlist/Footer"
 
 const Wrapper = styled.div<{ $bgColor: string }>`
   background-color: ${(props) => props.$bgColor};
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   padding: 3vw;
   display: flex;
   flex-direction: column;
@@ -44,19 +46,23 @@ export const Wishlist = (props: any) => {
   const gridSize = getGridSize(itemCount)
 
   return (
-    <Wrapper $bgColor={bgColor}>
-      <Title>Wishlist!</Title>
-      <GridContainer $gridSize={gridSize}>
-        {itemList.map((item) => (
-          <Item
-            key={item.id}
-            title={item.title}
-            url={item.url}
-            imgSrc={`${CDN_BASE_URL}/${WISHLIST_PREFIX}/${item.wishlistId}/${item.img}`}
-          />
-        ))}
-      </GridContainer>
-    </Wrapper>
+    <>
+      <Wrapper $bgColor={bgColor}>
+        <Title>Wishlist!</Title>
+        <GridContainer $gridSize={gridSize}>
+          {itemList.map((item) => (
+            <Item
+              key={item.id}
+              title={item.title}
+              url={item.url}
+              imgSrc={`${CDN_BASE_URL}/${WISHLIST_PREFIX}/${item.wishlistId}/${item.img}`}
+            />
+          ))}
+        </GridContainer>
+        <Footer/>
+      </Wrapper>
+      <Island />
+    </>
   )
 }
 

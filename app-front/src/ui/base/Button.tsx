@@ -8,12 +8,12 @@ interface ButtonProps {
 }
 
 export const Button = styled.button<ButtonProps>`
-  border: 2px solid white;
+  border: none;
   color: white;
   border-radius: 5px;
   width: ${(props) => props.width || "100px"};
   height: ${(props) => props.height || "40px"};
-  font-weight: 700;
+  font-weight: 600;
   font-size: 20px;
   text-align: center;
 `

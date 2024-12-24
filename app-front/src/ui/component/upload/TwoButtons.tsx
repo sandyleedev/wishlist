@@ -8,13 +8,13 @@ const Wrapper = styled.div`
 `
 
 const LeftBtn = styled(Button)`
-  background-color: #95daa6;
-  flex-grow: 1;
+    background-color: #0ea331;
+    flex-grow: 1;
 `
 
 const RightBtn = styled(Button)`
-  background-color: pink;
-  flex-grow: 1;
+    background-color: #f32043;
+    flex-grow: 1;
 `
 
 interface TwoButtonProps {
