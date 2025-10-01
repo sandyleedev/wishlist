@@ -1,6 +1,8 @@
-import Player from "lottie-react"
 import snowflake from "../../../../public/lottie/snowflake.json"
 import styled from "styled-components"
+import dynamic from "next/dynamic"
+
+const Player = dynamic(() => import("lottie-react"), { ssr: false })
 
 const Text = styled.div`
   position: absolute;

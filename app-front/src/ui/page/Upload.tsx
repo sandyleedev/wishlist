@@ -41,6 +41,8 @@ export const Upload = () => {
       setIsUploading(false)
     } catch (e) {
       console.error(e)
+      alert("error occurred!")
+      setIsUploading(false)
     }
   }
 

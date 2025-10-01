@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import Item from "@/ui/component/wishlist/Item"
 import Footer from "@/ui/component/wishlist/Footer"
+import { CDN_BASE_URL, WISHLIST_PREFIX } from "../../../constants"
 
 const Wrapper = styled.div<{ $bgColor: string }>`
   background-color: ${(props) => props.$bgColor};
@@ -32,11 +33,8 @@ const Title = styled.div`
 export const Wishlist = (props: any) => {
   const { itemList } = props
 
-  const itemCount = itemList.length
+  const itemCount = itemList.length ?? 0
   const bgColor = "#D9EAFD"
-
-  const CDN_BASE_URL = "https://d2lknujd7fonfi.cloudfront.net"
-  const WISHLIST_PREFIX = "wishlist"
 
   // gridSize 계산 (1~4: 2x2, 5~9: 3x3 등)
   const getGridSize = (count: number) => {

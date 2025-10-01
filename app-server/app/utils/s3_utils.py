@@ -2,15 +2,16 @@ import boto3
 from PIL import Image
 from io import BytesIO
 
+from app.config.config import Config
 
 s3_client = boto3.client(
     's3',
-    aws_access_key_id='AKIA47CRUOJQBYCXL7N6',
-    aws_secret_access_key='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',
-    region_name='ap-northeast-2'
+    region_name=Config.AWS_REGION,
+    aws_access_key_id=Config.AWS_ACCESS_KEY_ID,
+    aws_secret_access_key=Config.AWS_SECRET_ACCESS_KEY
 )
 
-BUCKET_NAME = "buttercookiebucket"
+BUCKET_NAME = Config.S3_BUCKET
 
 
 def convert_to_webp(image_stream: BytesIO) -> BytesIO:

@@ -19,11 +19,6 @@ const Title = styled.span`
   font-size: 7vw;
   font-family: "Poppins", serif;
   text-transform: uppercase;
-  //text-shadow:
-  //  1.5px 1.5px 0px #fff,  /* 우측 상단 */
-  //  -1.5px -1.5px 0px #fff, /* 좌측 하단 */
-  //  1.5px -1.5px 0px #fff,  /* 우측 하단 */
-  //  -1.5px 1.5px 0px #fff;  /* 좌측 상단 */
 `
 
 const Text = styled.span`
@@ -41,9 +36,7 @@ const Button = styled.button`
 `
 
 export const Home = ({ data }: { data: any }) => {
-  console.log(data)
-
-  const moveToMakeWish = () => {
+  const goToUploadPage = () => {
     window.location.href = "/upload"
   }
 
@@ -52,7 +45,7 @@ export const Home = ({ data }: { data: any }) => {
       <Wrapper>
         <Title>🧤 Wishlist</Title>
         <Text>🍞🍀🍎🕯</Text>
-        <Button onClick={moveToMakeWish}>➡️ MAKE A NEW WISH 💭</Button>
+        <Button onClick={goToUploadPage}>➡️ MAKE A NEW WISH 💭</Button>
       </Wrapper>
     </>
   )

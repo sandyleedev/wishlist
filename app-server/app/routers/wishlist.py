@@ -35,13 +35,11 @@ async def upload_images(
         urls: List[str] = Form(...),
         images: List[UploadFile] = File(...),
 ):
-
     # 숫자와 알파벳을 포함한 10자리 난수 생성
     wishlist_id = ''.join(random.choices(string.ascii_letters + string.digits, k=10))
 
     connection = connect_to_db()
     cursor = connection.cursor()
-
 
     # wishlist 테이블에 데이터 삽입
     cursor.execute("INSERT INTO wishlist (wishlist_id, wishlist_title) VALUES (%s, %s)",
@@ -49,7 +47,7 @@ async def upload_images(
 
     # wishlist_items 테이블에 데이터 삽입
     wishlist_items = []
-    for index, (title, url) in enumerate(zip(titles, urls), start = 1):
+    for index, (title, url) in enumerate(zip(titles, urls), start=1):
         img_name = f"{index}.webp"
         wishlist_items.append((wishlist_id, title, url, img_name))
 
