@@ -4,8 +4,10 @@ import axios from "axios"
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { id } = context.params!
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL
+
   try {
-    const { data } = await axios.get(`http://127.0.0.1:8000/wishlist/${id}`)
+    const { data } = await axios.get(`${baseUrl}/wishlist/${id}`)
     return {
       props: data.data,
     }
