@@ -22,7 +22,7 @@ export const Item = (props: ItemProps) => {
   const { title, url, imgSrc } = props
   return (
     <>
-      <ItemWrapper href={url}>
+      <ItemWrapper href={url} target="_blank" rel="noopener noreferrer">
         <Img src={imgSrc} alt={title} />
         <Title>{title}</Title>
       </ItemWrapper>

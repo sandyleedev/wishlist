@@ -6,14 +6,14 @@ from PIL import Image
 from fastapi import UploadFile, File, Form, Path
 from io import BytesIO
 from pydantic import BaseModel
-from rembg import remove
+from rembg import remove, new_session
 from psycopg2.extras import RealDictCursor
 
 from ..utils.db_utils import connect_to_db
 from ..utils.s3_utils import upload_to_s3
 
 router = APIRouter()
-
+u2netp_session = new_session("u2netp")
 
 class Item(BaseModel):
     id: int
@@ -70,7 +70,7 @@ async def upload_images(
             img = Image.open(image_stream)
 
             # 이미지의 배경 제거
-            processed_image = remove(img_data)  # remove 함수로 배경 제거
+            processed_image = remove(img_data, session=u2netp_session)  # remove 함수로 배경 제거
             image_stream = BytesIO(processed_image)
 
             # S3에 이미지 업로드
