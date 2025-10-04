@@ -13,11 +13,15 @@ const Wrapper = styled.div<{ $bgColor: string }>`
   gap: 5vw;
 `
 
-const GridContainer = styled.div<{ $gridSize: number }>`
-  display: grid;
-  grid-template-columns: repeat(${(props) => props.$gridSize}, 1fr);
-  grid-template-rows: repeat(${(props) => props.$gridSize}, 1fr);
-  gap: 1vw;
+const GridContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* 각 줄 중앙 정렬 */
+  gap: 2vw;
+
+  & > * {
+    flex: 0 1 150px; /* 모든 카드 동일 크기 (150px) */
+  }
 `
 
 const Title = styled.div`
@@ -26,40 +30,30 @@ const Title = styled.div`
   font-size: 5vw;
   font-weight: 700;
   font-style: italic;
-  grid-column: 1 / -1; /* 타이틀이 그리드 전체를 차지하도록 설정 */
   margin: 20px 0;
 `
 
 export const Wishlist = (props: any) => {
   const { itemList } = props
-
-  const itemCount = itemList.length ?? 0
   const bgColor = "#D9EAFD"
 
-  // gridSize 계산 (1~4: 2x2, 5~9: 3x3 등)
-  const getGridSize = (count: number) => {
-    return Math.ceil(Math.sqrt(count)) // 동적으로 더 큰 그리드 처리
-  }
-
-  const gridSize = getGridSize(itemCount)
-
   return (
-    <>
-      <Wrapper $bgColor={bgColor}>
-        <Title>Wishlist!</Title>
-        <GridContainer $gridSize={gridSize}>
-          {itemList.map((item) => (
-            <Item
-              key={item.id}
-              title={item.title}
-              url={item.url}
-              imgSrc={`${CDN_BASE_URL}/${WISHLIST_PREFIX}/${item.wishlistId}/${item.img}`}
-            />
-          ))}
-        </GridContainer>
-        <Footer />
-      </Wrapper>
-    </>
+    <Wrapper $bgColor={bgColor}>
+      <Title>Wishlist!</Title>
+      <GridContainer>
+        {itemList.map((item, idx) => (
+          <Item
+            key={item.id}
+            title={item.title}
+            url={item.url}
+            imgSrc={`${CDN_BASE_URL}/${WISHLIST_PREFIX}/${item.wishlistId}/${item.img}`}
+            index={idx}
+            total={itemList.length}
+          />
+        ))}
+      </GridContainer>
+      <Footer />
+    </Wrapper>
   )
 }
 
