@@ -14,13 +14,20 @@ const Wrapper = styled.div<{ $bgColor: string }>`
 `
 
 const GridContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* 각 줄 중앙 정렬 */
+  display: grid;
   gap: 2vw;
+  justify-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
 
-  & > * {
-    flex: 0 1 150px; /* 모든 카드 동일 크기 (150px) */
+  grid-template-columns: repeat(2, 1fr);
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(4, 1fr);
   }
 `
 
@@ -33,9 +40,29 @@ const Title = styled.div`
   margin: 20px 0;
 `
 
+// 파스텔 톤 팔레트
+const pastelColors = [
+  "#FFFBF4", // 연베이지
+  "#FDF7FF", // 연보라
+  "#F4FBFF", // 연하늘
+  "#F9FFF4", // 연민트
+  "#FFF4F7", // 연핑크
+  "#FFFBEA", // 연노랑
+]
+
+// 문자열 기반 deterministic 색상 선택
+const getDeterministicBg = (seedStr: string) => {
+  let hash = 0
+  for (let i = 0; i < seedStr.length; i++) {
+    hash = (hash * 31 + seedStr.charCodeAt(i)) % 233280
+  }
+  const index = hash % pastelColors.length
+  return pastelColors[index]
+}
+
 export const Wishlist = (props: any) => {
   const { itemList } = props
-  const bgColor = "#D9EAFD"
+  const bgColor = getDeterministicBg(itemList[0]?.wishlistId || "default")
 
   return (
     <Wrapper $bgColor={bgColor}>
