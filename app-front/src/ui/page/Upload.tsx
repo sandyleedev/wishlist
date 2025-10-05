@@ -7,7 +7,7 @@ import {
   GridWrapper,
   Title,
   Wrapper,
-} from "@/ui/page/newListPartialStyle"
+} from "@/ui/style/uploadPageStyle"
 import { useState } from "react"
 import LoadingComponent from "@/ui/component/upload/LoadingComponent"
 

@@ -6,14 +6,29 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 3vw;
+  padding: 10px;
   font-style: italic;
 `
 
 export const GridWrapper = styled.div`
   display: grid;
-  gap: 10px; /* 아이템 간의 간격 */
+  gap: 20px;
   padding: 10px;
+  width: 100%;
+  justify-content: center;
+
+  /* 🔹 화면 크기에 따라 자동으로 칸 수 조정 */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+  /* 🔹 큰 화면에서는 좀 더 여유 있게 */
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  /* 🔹 아주 작은 모바일에서는 하나씩 */
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
 `
 
 export const ButtonWrapper = styled.div`
@@ -21,21 +36,10 @@ export const ButtonWrapper = styled.div`
   flex-direction: column;
   margin-bottom: 10px;
   gap: 10px;
-  width: 94vw;
-`
+  width: 400px;
 
-export const GridItem = styled.div`
-  background-color: #9ebeff;
-  border-radius: 8px;
-  max-width: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2em;
-
-  &:hover {
-    opacity: 0.5;
-    cursor: pointer;
+  @media (max-width: 640px) {
+    width: 90vw;
   }
 `
 
@@ -48,13 +52,13 @@ export const Title = styled.div`
 `
 
 export const AddButton = styled.div`
-  font-size: 20px;
+  font-size: 16px;
   border: 1px solid black;
   border-radius: 5px;
   color: black;
   cursor: pointer;
   font-weight: 700;
-  padding: 10px;
+  padding: 8px;
   text-align: center;
   flex: 1;
 `

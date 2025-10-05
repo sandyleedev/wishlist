@@ -17,7 +17,6 @@ const Title = styled.span`
   left: 20px;
   font-weight: 600;
   font-size: 7vw;
-  font-family: "Poppins", serif;
   text-transform: uppercase;
 `
 
@@ -33,6 +32,15 @@ const Button = styled.button`
   padding: 5px 10px;
   color: #000;
   font-weight: 600;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #6481f4;
+    color: white;
+    border-color: #4c6ef5;
+    box-shadow: 0 4px 12px rgba(76, 110, 245, 0.4);
+    transform: translateY(-2px);
+  }
 `
 
 export const Home = ({ data }: { data: any }) => {

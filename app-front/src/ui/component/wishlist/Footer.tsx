@@ -10,18 +10,28 @@ const Wrapper = styled.div`
 `
 
 const Button = styled.div`
-  width: 50vw;
-  height: 50px;
+  width: 30vw;
+  min-width: 300px;
+  height: 45px;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
+  cursor: pointer;
+  border: 1px solid black;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+
+  &:hover {
+    font-weight: bold;
+  }
 `
 
 const Icon = styled.div`
-  font-size: 30px;
+  font-size: 25px;
 `
 const Text = styled.div`
-  font-size: 20px;
+  font-size: 16px;
   white-space: nowrap; /* 텍스트가 줄 바꿈되지 않도록 설정 */
 `
 export const Footer = () => {

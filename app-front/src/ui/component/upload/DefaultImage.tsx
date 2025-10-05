@@ -7,7 +7,7 @@ export const DefaultImage = (props: { onClick: any }) => {
     }
   `
   const Img = styled.img`
-    width: 90vw;
+    width: 100%;
     filter: opacity(0.6);
   `
 
