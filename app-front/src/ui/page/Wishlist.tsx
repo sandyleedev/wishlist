@@ -2,7 +2,6 @@ import styled from "styled-components"
 import Item from "@/ui/component/wishlist/Item"
 import Footer from "@/ui/component/wishlist/Footer"
 import { CDN_BASE_URL, WISHLIST_PREFIX } from "../../../constants"
-import axios from "axios"
 
 const Wrapper = styled.div<{ $bgColor: string }>`
   background-color: ${(props) => props.$bgColor};
@@ -65,11 +64,6 @@ export const Wishlist = (props: any) => {
   const { itemList } = props
   const bgColor = getDeterministicBg(itemList[0]?.wishlistId || "default")
 
-  const apiTest = async () => {
-    const res = await axios.get("/api/proxy/wishlist/beGp2ZdDh7")
-    console.log("res data ", res.data)
-  }
-
   return (
     <Wrapper $bgColor={bgColor}>
       <Title>Wishlist!</Title>
@@ -85,7 +79,6 @@ export const Wishlist = (props: any) => {
           />
         ))}
       </GridContainer>
-      <button onClick={apiTest}>Click!</button>
       <Footer />
     </Wrapper>
   )
